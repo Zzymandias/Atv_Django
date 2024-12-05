@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock title %}
+{% block content %}
+    {% for user in dados %}
+    <p>{{user.name}} {{user.email}}</p>
+    <a href= "{% url 'app:editar_usuario' user.id %}"> <button class="btn btn-warning"> editar </button> </a>
+    <a href= "{% url 'app:excluir_usuario' user.id %}"> <button class="btn btn-danger"> excluir </button> </a>
+    {% endfor %}    
+{% endblock content %}

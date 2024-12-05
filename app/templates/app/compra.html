@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Comprar{% endblock title %}
+{% block content %}
+    <h1>Finalizar Compra</h1>
+    <h1>Compra do curso: {{ curso.name }}</h1>
+    <p>Autor: {{ curso.author }}</p>
+    <p>Duração: {{ curso.duration }}</p>
+    <p>Preço: R${{ curso.price }}</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Finalizar Compra</button>
+    </form>
+{% endblock content %}

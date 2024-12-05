@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}SignUp{% endblock title %}
+{% block content %}
+    <h1>Novo usuário</h1>
+    <form action="{% url 'app:signup' %}" method="post">
+        {% csrf_token %}
+        <label for="">Nome Completo</label>
+        {{form.name}}
+        <label>Email</label>
+        {{form.email}}
+        <label>Senha</label>
+        {{form.hash_senha}}
+        <input type="submit" value="SignUp"/>
+    </form>
+{% endblock content %}

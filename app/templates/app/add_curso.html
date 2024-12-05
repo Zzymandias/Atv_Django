@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Adicionar curso{% endblock title %}
+
+{% block content %}
+    <h1>Novo curso</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'app:cursos' %}">
+        {% csrf_token %}
+        <label for="">Nome</label>
+        {{form.name}}
+        <label for="">Autor</label>
+        {{form.author}}
+        <label for="">Duração</label>
+        {{form.duration}}
+        <label for="">Preço</label>
+        {{form.price}}
+        <label for="id_foto">Foto</label>
+        {{ form.fotos }}
+        <input type="submit" value="Cadastrar"/>
+    </form>
+{% endblock content %}

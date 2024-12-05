@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Fotos{% endblock title %}
+
+{% block content %}
+    <h1>Fotos:</h1>
+    {% for g in galeria %}
+    <img src="/media/{{ g.foto }}" class="card-img-top" style="max-width: 300px; max-height: 200px; object-fit: cover;">
+    <h1>{{ g.nome }}</h1>
+    <a href= "{% url 'app:excluir_foto' g.id %}"> <button class="btn btn-danger"> excluir </button> </a>
+{% endfor %}
+{% endblock content %}
