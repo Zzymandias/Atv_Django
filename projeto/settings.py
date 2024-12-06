@@ -76,17 +76,10 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-TEMP_DB_DIR = os.path.join(BASE_DIR, 'temp_db')
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),  # Nome do banco de dados
-        'USER': os.environ.get('DB_USER'),  # Usuário do banco de dados
-        'PASSWORD': os.environ.get('DB_PASSWORD'),  # Senha do banco de dados
-        'HOST': os.environ.get('DB_HOST'),  # Host do banco de dados (por exemplo, db.supabase.co)
-        'PORT': os.environ.get('DB_PORT', '5432'),  # Porta padrão do PostgreSQL
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
