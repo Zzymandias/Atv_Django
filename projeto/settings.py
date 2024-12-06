@@ -76,10 +76,13 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+TEMP_DB_DIR = os.path.join(BASE_DIR, 'temp_db')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(TEMP_DB_DIR, 'db.sqlite3'),
     }
 }
 
